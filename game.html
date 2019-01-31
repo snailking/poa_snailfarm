@@ -9,7 +9,7 @@
 		<link rel="shortcut icon" href="favicon.png" type="image/x-icon">		
 		<!-- CSS -->
 		<link rel="stylesheet" type="text/css" href="theme_bootstrap.css">	
-		<link rel="stylesheet" type="text/css" href="theme_snailfarm3.css">		
+		<link rel="stylesheet" type="text/css" href="theme_poasnailfarm.css">		
 	</head>
 	
 	<body class="tint">
@@ -18,22 +18,14 @@
 			<a name="top"><img src="img/logo.png" class="img-title">
 		</div>
 		<div class="jumbotron" align="center">
-				<h3>Your Favorite Ethereum Forest Adventure... Now on POA Network!</h3>
-				<div class="container-beige">
-				<a href="#quickstart"><img height="48" src="img/question_circle.png"></a> 
-				<a href="https://blockscout.com/poa/sokol/address/0xe8826d573d2Bfb04458CABeB3EA703A109113843" target="_blank"><img height="48" src="img/contract_circle.png"></a>
-				<a href="https://discord.gg/JU8P4Ru" target="_blank"><img height="48" src="img/discord_circle.png"></a>
-				<a href="https://twitter.com/EtherSnailFarm" target="_blank"><img height="48" src="img/twitter_circle.png"></a>
-				<a href="https://reddit.com/r/snailthrone" target="_blank"><img height="48" src="img/reddit_circle.png"></a>
-				<a href="https://medium.com/@thesnailking/snailfarm-3-competitive-idlegame-on-ethereum-3fe32bf774c7" target="_blank"><img height="48" src="img/medium_circle.png"></a>
-				<div class="row">
-					<div class="col-sm" align="left">
-						<p>Contract balance: <span id="contractbalance">[undefined]</span> POA</p>
-					</div>
-					<div class="col-sm" align="right">
-						<p>Snailpot: <span id="snailpot">[undefined]</span> POA</p>
-					</div>
-				</div>
+				<h3>Your Favorite Ethereum Forest Adventure... now on POA Network!</h1>
+				<a href="#quickstart"><img height="64" src="img/question_circle.png"></a> 
+				<a href="https://blockscout.com/poa/sokol/address/0xe8826d573d2Bfb04458CABeB3EA703A109113843" target="_blank"><img height="64" src="img/contract_circle.png"></a>
+				<a href="https://discord.gg/JU8P4Ru" target="_blank"><img height="64" src="img/discord_circle.png"></a>
+				<a href="https://twitter.com/EtherSnailFarm" target="_blank"><img height="64" src="img/twitter_circle.png"></a>
+				<a href="https://medium.com/@thesnailking/snailfarm-3-competitive-idlegame-on-ethereum-3fe32bf774c7" target="_blank"><img height="64" src="img/medium_circle.png"></a>
+				<a href="https://snailking.github.io/snailthrone" target="_blank"><img height="64" src="img/snailthrone_circle.png"></a>
+				<a href="https://reddit.com/r/snailthrone" target="_blank"><img height="64" src="img/reddit_circle.png"></a>				
 			</div>
 		</div>
 		<!-- ROUND INFO -->
@@ -172,7 +164,7 @@
 			</div>
 			<div class="row black-shadow">
 				<div class="col-sm" align="left">
-					<h5>Buy <span id="buyestimate">?</span> Eggs for <span id="fieldBuy2">?</span> POA <input type="text" id="fieldBuy" value="0.01" size="4">
+					<h5>Buy <span id="buyestimate">?</span> Eggs for <span id="fieldBuy2">?</span> POA <input type="text" id="fieldBuy" value="0.1" size="4">
 				</div>
 				<div class="col-sm" align="right">
 					<p>(Maximum eggs in one buy: <span id="maxeggbuy">[undefined]</span>) <button class="btn btn-success" onclick="webCheck(webBuyEgg)">BUY</button></p>
@@ -248,7 +240,7 @@
 					<h5 class="black-shadow">Owned by <span id="tadpoleowner">[undefined]</span></h3><br>
 					<button class="btn btn-success" onclick="webCheck(webBecomeTadpolePrince)">BECOME TADPOLEPRINCE</button>
 					<p>Requirement: <span id="tadpolereq">[undefined]</span> POA </p>
-					<input type="text" id="fieldPrince" value="0.02" size="4">
+					<input type="text" id="fieldPrince" size="4">
 				</div>
 			</div>
 		</div>
@@ -318,7 +310,20 @@
 			<div class="col-sm black-shadow" align="center"><br>
 				<h5>The Poatree has grown a total of <span id="maxacorn">[undefined]</span> Acorns</h5>
 			</div>
-		</div><br>		
+		</div>
+		<!-- CONTRACT BALANCE, SNAILPOT -->
+		<div class="container">
+			<div class="container-beige">
+				<div class="row">
+					<div class="col-sm" align="left">
+						<h3>Contract balance: <span id="contractbalance">[undefined]</span> POA</h3>
+					</div>
+					<div class="col-sm" align="right">
+						<h3>Snailpot: <span id="snailpot">[undefined]</span> POA</h3>
+					</div>
+				</div>
+			</div>
+		</div>
 		<!-- GAME INFO -->
 		<div class="jumbotron">			
 			<a name="quickstart"><h2 align="center">GAME INFO</h2></a>
@@ -429,7 +434,7 @@
 		</div>
 		
 		<!-- Main Javascript -->
-		<script src="snailfarm3_poa.js"></script>				
+		<script src="poasnailfarm.js"></script>				
 		<script>
 			main()
 		</script>
