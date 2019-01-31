@@ -1255,7 +1255,7 @@ function webClaimShare(){
 
 //Buy starting snails
 function webGetStarter(){
-    var weitospend = web3.toWei(a_hatchCost,'ether');
+    var weitospend = web3.toWei(a_joinCost,'ether');
 	BuyStartingSnail(weitospend, function(){
 	});
 }
@@ -1285,7 +1285,7 @@ function webCheck(_func){
 
 //Hatch eggs
 function webHatchEgg(){
-	var weitospend = web3.toWei(0.008,'ether');
+	var weitospend = web3.toWei(a_hatchCost,'ether');
 	HatchEgg(weitospend, function(){
 	});
 }
