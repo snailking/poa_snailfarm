@@ -196,11 +196,11 @@ var l_account;
 //Leaderboard Array
 
 var d_leaderboard = [
-	{ address: "0x0000000022223333444455556666777788889999", hatchery: 0, egg: 0, red: 0, rank: 1, boost1: false, boost2: false, boost3: false, boost4: false, boost5: false, boost6: false },
-	{ address: "0x0000111122223333444455556666777788889999", hatchery: 0, egg: 0, red: 0, rank: 2, boost1: false, boost2: false, boost3: false, boost4: false, boost5: false, boost6: false },
-	{ address: "0x0000222222223333444455556666777788889999", hatchery: 0, egg: 0, red: 0, rank: 3, boost1: false, boost2: false, boost3: false, boost4: false, boost5: false, boost6: false },
-	{ address: "0x0000333322223333444455556666777788889999", hatchery: 0, egg: 0, red: 0, rank: 4, boost1: false, boost2: false, boost3: false, boost4: false, boost5: false, boost6: false },
-	{ address: "0x0000444422223333444455556666777788889999", hatchery: 0, egg: 0, red: 0, rank: 5, boost1: false, boost2: false, boost3: false, boost4: false, boost5: false, boost6: false }
+	{ address: "0x0000000022223333444455556666777788889999", hatchery: 0, egg: 0, red: 0, boost1: false, boost2: false, boost3: false, boost4: false, boost5: false, boost6: false },
+	{ address: "0x0000111122223333444455556666777788889999", hatchery: 0, egg: 0, red: 0, boost1: false, boost2: false, boost3: false, boost4: false, boost5: false, boost6: false },
+	{ address: "0x0000222222223333444455556666777788889999", hatchery: 0, egg: 0, red: 0, boost1: false, boost2: false, boost3: false, boost4: false, boost5: false, boost6: false },
+	{ address: "0x0000333322223333444455556666777788889999", hatchery: 0, egg: 0, red: 0, boost1: false, boost2: false, boost3: false, boost4: false, boost5: false, boost6: false },
+	{ address: "0x0000444422223333444455556666777788889999", hatchery: 0, egg: 0, red: 0, boost1: false, boost2: false, boost3: false, boost4: false, boost5: false, boost6: false }
 ];	
 
 /* GLOBAL LOOP */
@@ -453,38 +453,34 @@ function fastupdateDowntime(){
 function showLeaderboard() {
 	var leaderboarddoc = document.getElementById('leaderboard');
 	leaderboarddoc.innerHTML = "";
-	for(i = 1; i < 6; i++) {
-		for(j = 0; j < 5; j++) {
-			if(d_leaderboard[j].rank == i) {
-				leaderboarddoc.innerHTML += "#" + d_leaderboard[j].rank + " | " + formatEthAdr(d_leaderboard[j].address) + " | " + d_leaderboard[j].hatchery + " Snails | " + d_leaderboard[j].egg + " Eggs | " + d_leaderboard[j].red + " Reds | ";
-				//////////console.log("updated rank " + i + " with index " + j);
-				if(d_leaderboard[j].boost1 == true) {
-					leaderboarddoc.innerHTML += "<img src='img/spider.png' height='32'>";
-					//////////console.log(d_leaderboard[j] + " has spidersqueen");
-				}
-				if(d_leaderboard[j].boost2 == true) {
-					leaderboarddoc.innerHTML += "<img src='img/squirrel.png' height='32'>";
-					//////////console.log(d_leaderboard[j] + " has squirrel");
-				}
-				if(d_leaderboard[j].boost3 == true) {
-					leaderboarddoc.innerHTML += "<img src='img/tadpole.png' height='32'>";
-					//////////console.log(d_leaderboard[j] + " has tadpole");
-				}
-				if(d_leaderboard[j].boost4 == true) {
-					leaderboarddoc.innerHTML += "<img src='img/lettuce.png' height='32'>";
-					////////console.log(d_leaderboard[j] + " has lettuce");
-				}
-				if(d_leaderboard[j].boost5 == true) {
-					leaderboarddoc.innerHTML += "<img src='img/carrot.png' height='32'>";
-					//////////console.log(d_leaderboard[j] + " has carrot");
-				}
-				if(d_leaderboard[j].boost6 == true) {
-					leaderboarddoc.innerHTML += "<img src='img/slug.png' height='32'>";
-					//////////console.log(d_leaderboard[j] + " has slug");
-				}
-				leaderboarddoc.innerHTML += "<br>";
-			}
+	for(i = 0; i < 5; i++) {
+		leaderboarddoc.innerHTML += "#" + parseInt(i + 1) + " | " + formatEthAdr(d_leaderboard[i].address) + " | " + d_leaderboard[i].hatchery + " Snails | " + d_leaderboard[i].egg + " Eggs | " + d_leaderboard[i].red + " Reds | ";
+		//console.log("updated rank " + i + " with index " + j);
+		if(d_leaderboard[i].boost1 == true) {
+			leaderboarddoc.innerHTML += "<img src='img/spider.png' height='32'>";
+			//console.log(d_leaderboard[j] + " has spidersqueen");
 		}
+		if(d_leaderboard[i].boost2 == true) {
+			leaderboarddoc.innerHTML += "<img src='img/squirrel.png' height='32'>";
+			//console.log(d_leaderboard[j] + " has squirrel");
+		}
+		if(d_leaderboard[i].boost3 == true) {
+			leaderboarddoc.innerHTML += "<img src='img/tadpole.png' height='32'>";
+			//////////console.log(d_leaderboard[j] + " has tadpole");
+		}
+		if(d_leaderboard[i].boost4 == true) {
+			leaderboarddoc.innerHTML += "<img src='img/lettuce.png' height='32'>";
+			//console.log(d_leaderboard[j] + " has lettuce");
+		}
+		if(d_leaderboard[i].boost5 == true) {
+			leaderboarddoc.innerHTML += "<img src='img/carrot.png' height='32'>";
+			//////////console.log(d_leaderboard[j] + " has carrot");
+		}
+		if(d_leaderboard[i].boost6 == true) {
+			leaderboarddoc.innerHTML += "<img src='img/slug.png' height='32'>";
+			//////////console.log(d_leaderboard[j] + " has slug");
+		}
+		leaderboarddoc.innerHTML += "<br>";
 	}
 }
 
@@ -516,25 +512,10 @@ function slowupdateLeaderboard() {
 		}
 	}
 	
-	//Loop through hatcheries and store top ones to assign ranks
-	var avoidNext = [0, 0, 0, 0, 0];
-	for(k = 1; k < 6; k++) {
-		var topHatch = -1;
-		var topGuy = 0;
-		for(j = 0; j < 5; j++) {
-			if(avoidNext[j] != 1){
-				//////console.log("avoidNext[" + j + "] evaluated to != 1");
-				if(d_leaderboard[j].hatchery > topHatch){
-					topHatch = d_leaderboard[j].hatchery;
-					topGuy = j;
-				}
-			}
-		}
-		d_leaderboard[topGuy].rank = k;
-		//////console.log("New rank " + k + " : " + d_leaderboard[topGuy].address);
-		avoidNext[topGuy] = 1;
-		//////console.log("Next time, avoid indice " + topGuy);
-	}
+	//sort leaderboard
+	d_leaderboard.sort(function (a, b) {
+		return b.hatchery - a.hatchery;
+	});
 	
 	showLeaderboard();
 }
@@ -2890,15 +2871,23 @@ function currentTadpoleOwner(callback){
 
 //Compute Leaderboard 2
 function computeLeaderboard() {
+	
+	//check address isn't already on leaderboard
+	for(k = 0; k < d_leaderboard.length; k++){
+		if(e_hatched.address == d_leaderboard[k].address){
+			d_leaderboard[k].hatchery = e_hatched.hatchery;
+			break; //to save computation
+		}
+	}
+	
+	//else, push new leader
 	d_leaderboard.push(e_hatched);
-	console.log("pushing e_hatched: " + d_leaderboard[5].hatchery);
+	//sort leaderboard
 	d_leaderboard.sort(function (a, b) {
-		console.log("a.hatchery : " + a.hatchery + ". b.hatchery : " + b.hatchery);
 		return b.hatchery - a.hatchery;
 	});
-	console.log("sorted leaderboard. lowest result: " + d_leaderboard[5].address);
+	//remove lowest leader
 	d_leaderboard.pop();
-	console.log("popped leaderboard. number of leaders: " + d_leaderboard.length);
 }
 
 /*
