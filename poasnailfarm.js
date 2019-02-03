@@ -2873,21 +2873,24 @@ function currentTadpoleOwner(callback){
 function computeLeaderboard() {
 	
 	//check address isn't already on leaderboard
+	isLeader = false;
 	for(k = 0; k < d_leaderboard.length; k++){
 		if(e_hatched.address == d_leaderboard[k].address){
 			d_leaderboard[k].hatchery = e_hatched.hatchery;
-			break; //to save computation
+			isLeader = true;
 		}
 	}
 	
-	//else, push new leader
-	d_leaderboard.push(e_hatched);
-	//sort leaderboard
-	d_leaderboard.sort(function (a, b) {
-		return b.hatchery - a.hatchery;
-	});
-	//remove lowest leader
-	d_leaderboard.pop();
+	if(isLeader == false){
+		//else, push new leader
+		d_leaderboard.push(e_hatched);
+		//sort leaderboard
+		d_leaderboard.sort(function (a, b) {
+			return b.hatchery - a.hatchery;
+		});
+		//remove lowest leader
+		d_leaderboard.pop();
+	}
 }
 
 /*
