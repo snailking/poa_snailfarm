@@ -2891,8 +2891,9 @@ function currentTadpoleOwner(callback){
 //Compute Leaderboard 2
 function computeLeaderboard() {
 	d_leaderboard.push(e_hatched);
-	console.log("pushing e_hatched. d_leaderboard: " + d_leaderboard);
+	console.log("pushing e_hatched: " + d_leaderboard[5].hatchery);
 	d_leaderboard.sort(function (a, b) {
+		console.log("a.hatchery : " + a.hatchery + ". b.hatchery : " + b.hatchery);
 		return a.hatchery - b.hatchery;
 	});
 	console.log("sorted leaderboard. lowest result: " + d_leaderboard[5]);
