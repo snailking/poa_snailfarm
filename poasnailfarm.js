@@ -2,7 +2,8 @@
 //var contractAddress="0xc866Df99469E9744c1652A0FC19E059b8Ff2753E" // Sokol 2
 //var contractAddress="0xB9D95fE3EFDA5A8f42926332De896Ad083440CA9" // Sokol 3
 //var contractAddress="0x159C608D39852bdaEDA85a16A55654D60DBc2422" // Sokol 4
-var contractAddress="0xe8826d573d2Bfb04458CABeB3EA703A109113843" // Sokol 5
+//var contractAddress="0xe8826d573d2Bfb04458CABeB3EA703A109113843" // Sokol 5
+var contractAddress="0xA1C8Cc49f38D0546dA099F4249F0756bAAB4646d" // Sokol 6
 
 /* WEB3 DETECTION */
 
@@ -254,6 +255,7 @@ function refreshData(){
 	
 	updateMarketEgg();
 	updateMaxEggBuy();
+	updateMaxSellReward();
 	updateMaxAcorn();
 	updateAcornCost();
 	
@@ -1054,6 +1056,12 @@ function updateMaxEggBuy(){
 	maxeggbuydoc.innerHTML = a_marketEgg / 10;
 }
 
+//Maximum ETH in one sale
+function updateMaxSaleReward(){
+	var maxsalerewarddoc = document.getElementById('maxsalereward');
+	maxsalerewarddoc.innerHTML = a_eggPot / 20;
+}
+
 //Current number of acorns
 function updateMaxAcorn(){
 	var maxacorndoc = document.getElementById('maxacorn');
@@ -1385,8 +1393,7 @@ function webFindSlug(){
 
 /* CONTRACT ABI */
 
-
-abiDefinition=[{"constant": true,"inputs": [],"name": "ACORN_PRICE","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "GetMyBalance","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "LETTUCE_BASE_REQ","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "SPIDER_BASE_REQ","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "adr","type": "address"}],"name": "GetAcorn","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "","type": "address"}],"name": "gotCarrot","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "ComputeHarvest","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "","type": "address"}],"name": "playerRound","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "round","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "adr","type": "address"}],"name": "GetRed","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [],"name": "ClaimAcornShare","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": false,"inputs": [],"name": "JoinRound","outputs": [],"payable": true,"stateMutability": "payable","type": "function"},{"constant": false,"inputs": [],"name": "BuyStartingSnail","outputs": [],"payable": true,"stateMutability": "payable","type": "function"},{"constant": true,"inputs": [{"name": "","type": "address"}],"name": "hatcherySnail","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "","type": "address"}],"name": "hasSlug","outputs": [{"name": "","type": "bool"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "divPerAcorn","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [{"name": "_redAmount","type": "uint256"}],"name": "UseRedEgg","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": true,"inputs": [{"name": "","type": "address"}],"name": "hasStartingSnail","outputs": [{"name": "","type": "bool"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "base","type": "uint256"}],"name": "ComputeSquare","outputs": [{"name": "squareRoot","type": "uint256"}],"payable": false,"stateMutability": "pure","type": "function"},{"constant": false,"inputs": [],"name": "FundTree","outputs": [],"payable": true,"stateMutability": "payable","type": "function"},{"constant": true,"inputs": [{"name": "_ether","type": "uint256"}],"name": "ComputeAcornBuy","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "","type": "address"}],"name": "redEgg","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "ComputeAcornCost","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "TADPOLE_BASE_REQ","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "roundPot","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "eggspent","type": "uint256"}],"name": "ComputeSell","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "adr","type": "address"}],"name": "GetSnail","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "","type": "address"}],"name": "lastHatch","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "","type": "address"}],"name": "playerBalance","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "ACORN_MULT","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "adr","type": "address"}],"name": "ComputeMyEgg","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "","type": "address"}],"name": "acorn","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [],"name": "FindLettuce","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": false,"inputs": [],"name": "SellEgg","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": true,"inputs": [{"name": "adr","type": "address"}],"name": "GetLettuce","outputs": [{"name": "","type": "bool"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [],"name": "BecomeSpiderQueen","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": true,"inputs": [],"name": "snailPot","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [],"name": "BuyEgg","outputs": [],"payable": true,"stateMutability": "payable","type": "function"},{"constant": true,"inputs": [{"name": "adr","type": "address"}],"name": "GetProd","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "SQUIRREL_BASE_REQ","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "GetMyEgg","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [],"name": "GrabRedHarvest","outputs": [],"payable": true,"stateMutability": "payable","type": "function"},{"constant": true,"inputs": [],"name": "HATCHING_COST","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "adr","type": "address"}],"name": "GetSlug","outputs": [{"name": "","type": "bool"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "harvestStartTime","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "currentSpiderOwner","outputs": [{"name": "","type": "address"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "SLUG_MIN_REQ","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "eggPot","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [],"name": "HatchEgg","outputs": [],"payable": true,"stateMutability": "payable","type": "function"},{"constant": true,"inputs": [],"name": "FROGKING_REQ","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [],"name": "BeginRound","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": true,"inputs": [],"name": "marketEgg","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [],"name": "BecomeTadpolePrince","outputs": [],"payable": true,"stateMutability": "payable","type": "function"},{"constant": true,"inputs": [],"name": "dev","outputs": [{"name": "","type": "address"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "","type": "address"}],"name": "prodBoost","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [],"name": "FindCarrot","outputs": [],"payable": true,"stateMutability": "payable","type": "function"},{"constant": true,"inputs": [],"name": "harvestStartCost","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [],"name": "WithdrawBalance","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": true,"inputs": [],"name": "STARTING_SNAIL","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "harvestEndCost","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "ComputeMyShare","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "currentLeader","outputs": [{"name": "","type": "address"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "currentSnailmaster","outputs": [{"name": "","type": "address"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "HARVEST_COUNT","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "tadpoleReq","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "","type": "address"}],"name": "claimedShare","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "thronePot","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "ethspent","type": "uint256"}],"name": "ComputeBuy","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "maxAcorn","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "spiderReq","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "TIME_TO_HATCH_1SNAIL","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "CARROT_COST","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [],"name": "BecomeSquirrelDuke","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": true,"inputs": [{"name": "adr","type": "address"}],"name": "GetCarrot","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "","type": "address"}],"name": "hasLettuce","outputs": [{"name": "","type": "bool"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "nextRoundStart","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "HARVEST_DURATION","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "JOINING_ROUND_COST","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "GetMyRound","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "","type": "address"}],"name": "claimedEgg","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "HARVEST_DUR_ROOT","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "lettuceReq","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [],"name": "FindSlug","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": true,"inputs": [],"name": "squirrelReq","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "gameActive","outputs": [{"name": "","type": "bool"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "currentSquirrelOwner","outputs": [{"name": "","type": "address"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "currentTadpoleOwner","outputs": [{"name": "","type": "address"}],"payable": false,"stateMutability": "view","type": "function"},{"inputs": [],"payable": false,"stateMutability": "nonpayable","type": "constructor"},{"payable": true,"stateMutability": "payable","type": "fallback"},{"anonymous": false,"inputs": [{"indexed": true,"name": "player","type": "address"},{"indexed": false,"name": "eth","type": "uint256"},{"indexed": false,"name": "acorns","type": "uint256"}],"name": "FundedTree","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "player","type": "address"},{"indexed": false,"name": "eth","type": "uint256"},{"indexed": false,"name": "acorns","type": "uint256"}],"name": "ClaimedShare","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "player","type": "address"},{"indexed": false,"name": "eth","type": "uint256"}],"name": "WithdrewBalance","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "player","type": "address"},{"indexed": false,"name": "eggs","type": "uint256"},{"indexed": false,"name": "snails","type": "uint256"},{"indexed": false,"name": "hatchery","type": "uint256"}],"name": "Hatched","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "player","type": "address"},{"indexed": false,"name": "eggs","type": "uint256"},{"indexed": false,"name": "eth","type": "uint256"}],"name": "SoldEgg","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "player","type": "address"},{"indexed": false,"name": "eggs","type": "uint256"},{"indexed": false,"name": "eth","type": "uint256"},{"indexed": false,"name": "playereggs","type": "uint256"}],"name": "BoughtEgg","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "player","type": "address"},{"indexed": true,"name": "round","type": "uint256"}],"name": "StartedSnailing","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "player","type": "address"},{"indexed": true,"name": "round","type": "uint256"},{"indexed": false,"name": "spiderreq","type": "uint256"},{"indexed": false,"name": "hatchery","type": "uint256"}],"name": "BecameQueen","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "player","type": "address"},{"indexed": true,"name": "round","type": "uint256"},{"indexed": false,"name": "squirrelreq","type": "uint256"},{"indexed": false,"name": "playerreds","type": "uint256"}],"name": "BecameDuke","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "player","type": "address"},{"indexed": true,"name": "round","type": "uint256"},{"indexed": false,"name": "tadpolereq","type": "uint256"}],"name": "BecamePrince","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "roundwinner","type": "address"},{"indexed": true,"name": "round","type": "uint256"},{"indexed": false,"name": "eth","type": "uint256"}],"name": "WonRound","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "round","type": "uint256"}],"name": "BeganRound","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "player","type": "address"},{"indexed": true,"name": "round","type": "uint256"},{"indexed": false,"name": "playerreds","type": "uint256"}],"name": "JoinedRound","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "player","type": "address"},{"indexed": true,"name": "round","type": "uint256"},{"indexed": false,"name": "eth","type": "uint256"},{"indexed": false,"name": "playerreds","type": "uint256"}],"name": "GrabbedHarvest","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "player","type": "address"},{"indexed": false,"name": "eggs","type": "uint256"},{"indexed": false,"name": "snails","type": "uint256"},{"indexed": false,"name": "hatchery","type": "uint256"}],"name": "UsedRed","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "player","type": "address"},{"indexed": true,"name": "round","type": "uint256"},{"indexed": false,"name": "snails","type": "uint256"}],"name": "FoundSlug","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "player","type": "address"},{"indexed": true,"name": "round","type": "uint256"},{"indexed": false,"name": "lettucereq","type": "uint256"},{"indexed": false,"name": "playerreds","type": "uint256"}],"name": "FoundLettuce","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "player","type": "address"},{"indexed": true,"name": "round","type": "uint256"}],"name": "FoundCarrot","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "player","type": "address"},{"indexed": false,"name": "eth","type": "uint256"}],"name": "BoostedPot","type": "event"}]
+abiDefinition=[{"constant": true,"inputs": [],"name": "ACORN_PRICE","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "GetMyBalance","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "LETTUCE_BASE_REQ","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "SPIDER_BASE_REQ","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "adr","type": "address"}],"name": "GetAcorn","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "","type": "address"}],"name": "gotCarrot","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "ComputeHarvest","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "","type": "address"}],"name": "playerRound","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "round","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "adr","type": "address"}],"name": "GetRed","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [],"name": "ClaimAcornShare","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": false,"inputs": [],"name": "JoinRound","outputs": [],"payable": true,"stateMutability": "payable","type": "function"},{"constant": false,"inputs": [],"name": "BuyStartingSnail","outputs": [],"payable": true,"stateMutability": "payable","type": "function"},{"constant": true,"inputs": [{"name": "","type": "address"}],"name": "hatcherySnail","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "","type": "address"}],"name": "hasSlug","outputs": [{"name": "","type": "bool"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "divPerAcorn","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [{"name": "_redAmount","type": "uint256"}],"name": "UseRedEgg","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": true,"inputs": [{"name": "","type": "address"}],"name": "hasStartingSnail","outputs": [{"name": "","type": "bool"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "base","type": "uint256"}],"name": "ComputeSquare","outputs": [{"name": "squareRoot","type": "uint256"}],"payable": false,"stateMutability": "pure","type": "function"},{"constant": false,"inputs": [],"name": "FundTree","outputs": [],"payable": true,"stateMutability": "payable","type": "function"},{"constant": true,"inputs": [{"name": "_ether","type": "uint256"}],"name": "ComputeAcornBuy","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "","type": "address"}],"name": "redEgg","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "ComputeAcornCost","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "TADPOLE_BASE_REQ","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "roundPot","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "_eggspent","type": "uint256"}],"name": "ComputeSell","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "adr","type": "address"}],"name": "GetSnail","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "","type": "address"}],"name": "lastHatch","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "","type": "address"}],"name": "playerBalance","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "ACORN_MULT","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "adr","type": "address"}],"name": "ComputeMyEgg","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "","type": "address"}],"name": "acorn","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [],"name": "FindLettuce","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": false,"inputs": [],"name": "SellEgg","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": true,"inputs": [{"name": "adr","type": "address"}],"name": "GetLettuce","outputs": [{"name": "","type": "bool"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [],"name": "BecomeSpiderQueen","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": true,"inputs": [],"name": "snailPot","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [],"name": "BuyEgg","outputs": [],"payable": true,"stateMutability": "payable","type": "function"},{"constant": true,"inputs": [{"name": "adr","type": "address"}],"name": "GetProd","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "SQUIRREL_BASE_REQ","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "GetMyEgg","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [],"name": "GrabRedHarvest","outputs": [],"payable": true,"stateMutability": "payable","type": "function"},{"constant": true,"inputs": [],"name": "HATCHING_COST","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "adr","type": "address"}],"name": "GetSlug","outputs": [{"name": "","type": "bool"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "harvestStartTime","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "currentSpiderOwner","outputs": [{"name": "","type": "address"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "SLUG_MIN_REQ","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "eggPot","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [],"name": "HatchEgg","outputs": [],"payable": true,"stateMutability": "payable","type": "function"},{"constant": true,"inputs": [],"name": "FROGKING_REQ","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [],"name": "BeginRound","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": true,"inputs": [],"name": "marketEgg","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [],"name": "BecomeTadpolePrince","outputs": [],"payable": true,"stateMutability": "payable","type": "function"},{"constant": true,"inputs": [],"name": "dev","outputs": [{"name": "","type": "address"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "","type": "address"}],"name": "prodBoost","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [],"name": "FindCarrot","outputs": [],"payable": true,"stateMutability": "payable","type": "function"},{"constant": true,"inputs": [],"name": "harvestStartCost","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [],"name": "WithdrawBalance","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": true,"inputs": [],"name": "STARTING_SNAIL","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "harvestEndCost","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "ComputeMyShare","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "currentLeader","outputs": [{"name": "","type": "address"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "currentSnailmaster","outputs": [{"name": "","type": "address"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "HARVEST_COUNT","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "tadpoleReq","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "","type": "address"}],"name": "claimedShare","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "thronePot","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "ethspent","type": "uint256"}],"name": "ComputeBuy","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "maxAcorn","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "spiderReq","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "TIME_TO_HATCH_1SNAIL","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "CARROT_COST","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [],"name": "BecomeSquirrelDuke","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": true,"inputs": [{"name": "adr","type": "address"}],"name": "GetCarrot","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "","type": "address"}],"name": "hasLettuce","outputs": [{"name": "","type": "bool"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "nextRoundStart","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "HARVEST_DURATION","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "JOINING_ROUND_COST","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "GetMyRound","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "","type": "address"}],"name": "claimedEgg","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "HARVEST_DUR_ROOT","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "lettuceReq","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [],"name": "FindSlug","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": true,"inputs": [],"name": "squirrelReq","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "gameActive","outputs": [{"name": "","type": "bool"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "currentSquirrelOwner","outputs": [{"name": "","type": "address"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "currentTadpoleOwner","outputs": [{"name": "","type": "address"}],"payable": false,"stateMutability": "view","type": "function"},{"inputs": [],"payable": false,"stateMutability": "nonpayable","type": "constructor"},{"payable": true,"stateMutability": "payable","type": "fallback"},{"anonymous": false,"inputs": [{"indexed": true,"name": "player","type": "address"},{"indexed": false,"name": "eth","type": "uint256"},{"indexed": false,"name": "acorns","type": "uint256"}],"name": "FundedTree","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "player","type": "address"},{"indexed": false,"name": "eth","type": "uint256"},{"indexed": false,"name": "acorns","type": "uint256"}],"name": "ClaimedShare","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "player","type": "address"},{"indexed": false,"name": "eth","type": "uint256"}],"name": "WithdrewBalance","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "player","type": "address"},{"indexed": false,"name": "eggs","type": "uint256"},{"indexed": false,"name": "snails","type": "uint256"},{"indexed": false,"name": "hatchery","type": "uint256"}],"name": "Hatched","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "player","type": "address"},{"indexed": false,"name": "eggs","type": "uint256"},{"indexed": false,"name": "eth","type": "uint256"}],"name": "SoldEgg","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "player","type": "address"},{"indexed": false,"name": "eggs","type": "uint256"},{"indexed": false,"name": "eth","type": "uint256"},{"indexed": false,"name": "playereggs","type": "uint256"}],"name": "BoughtEgg","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "player","type": "address"},{"indexed": true,"name": "round","type": "uint256"}],"name": "StartedSnailing","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "player","type": "address"},{"indexed": true,"name": "round","type": "uint256"},{"indexed": false,"name": "spiderreq","type": "uint256"},{"indexed": false,"name": "hatchery","type": "uint256"}],"name": "BecameQueen","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "player","type": "address"},{"indexed": true,"name": "round","type": "uint256"},{"indexed": false,"name": "squirrelreq","type": "uint256"},{"indexed": false,"name": "playerreds","type": "uint256"}],"name": "BecameDuke","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "player","type": "address"},{"indexed": true,"name": "round","type": "uint256"},{"indexed": false,"name": "tadpolereq","type": "uint256"}],"name": "BecamePrince","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "roundwinner","type": "address"},{"indexed": true,"name": "round","type": "uint256"},{"indexed": false,"name": "eth","type": "uint256"}],"name": "WonRound","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "round","type": "uint256"}],"name": "BeganRound","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "player","type": "address"},{"indexed": true,"name": "round","type": "uint256"},{"indexed": false,"name": "playerreds","type": "uint256"}],"name": "JoinedRound","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "player","type": "address"},{"indexed": true,"name": "round","type": "uint256"},{"indexed": false,"name": "eth","type": "uint256"},{"indexed": false,"name": "playerreds","type": "uint256"}],"name": "GrabbedHarvest","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "player","type": "address"},{"indexed": false,"name": "eggs","type": "uint256"},{"indexed": false,"name": "snails","type": "uint256"},{"indexed": false,"name": "hatchery","type": "uint256"}],"name": "UsedRed","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "player","type": "address"},{"indexed": true,"name": "round","type": "uint256"},{"indexed": false,"name": "snails","type": "uint256"}],"name": "FoundSlug","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "player","type": "address"},{"indexed": true,"name": "round","type": "uint256"},{"indexed": false,"name": "lettucereq","type": "uint256"},{"indexed": false,"name": "playerreds","type": "uint256"}],"name": "FoundLettuce","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "player","type": "address"},{"indexed": true,"name": "round","type": "uint256"},{"indexed": false,"name": "eth","type": "uint256"}],"name": "FoundCarrot","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "player","type": "address"},{"indexed": false,"name": "eth","type": "uint256"}],"name": "BoostedPot","type": "event"}]
 
 var contractAbi = web3.eth.contract(abiDefinition);
 var myContract = contractAbi.at(contractAddress);
@@ -1398,11 +1405,11 @@ function ACORN_PRICE(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('ACORN_PRICE ',web3.toDecimal(result));
+            console.log('ACORN_PRICE ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -1415,11 +1422,11 @@ function GetMyBalance(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('GetMyBalance ',web3.toDecimal(result));
+            console.log('GetMyBalance ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -1432,11 +1439,11 @@ function LETTUCE_BASE_REQ(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('LETTUCE_BASE_REQ ',web3.toDecimal(result));
+            console.log('LETTUCE_BASE_REQ ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -1449,11 +1456,11 @@ function SPIDER_BASE_REQ(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('SPIDER_BASE_REQ ',web3.toDecimal(result));
+            console.log('SPIDER_BASE_REQ ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -1466,11 +1473,11 @@ function GetAcorn(adr,callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('GetAcorn ',web3.toDecimal(result));
+            console.log('GetAcorn ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -1483,11 +1490,11 @@ function gotCarrot(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('gotCarrot ',web3.toDecimal(result));
+            console.log('gotCarrot ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -1500,11 +1507,11 @@ function ComputeHarvest(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('ComputeHarvest ',web3.toDecimal(result));
+            console.log('ComputeHarvest ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -1517,11 +1524,11 @@ function playerRound(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('playerRound ',web3.toDecimal(result));
+            console.log('playerRound ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -1534,11 +1541,11 @@ function round(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('round ',web3.toDecimal(result));
+            console.log('round ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -1551,11 +1558,11 @@ function GetRed(adr,callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('GetRed ',web3.toDecimal(result));
+            console.log('GetRed ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -1568,11 +1575,11 @@ function ClaimAcornShare(callback){
     var endstr=web3.eth.sendTransaction({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('ClaimAcornShare ',result);
+            console.log('ClaimAcornShare ',result);
             callback(result)
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -1585,11 +1592,11 @@ function JoinRound(eth,callback){
     var endstr=web3.eth.sendTransaction({to:contractAddress, from:null, data: outputData,value: eth},
     function(error,result){
         if(!error){
-            //console.log('JoinRound ',result);
+            console.log('JoinRound ',result);
             callback(result)
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -1602,11 +1609,11 @@ function BuyStartingSnail(eth,callback){
     var endstr=web3.eth.sendTransaction({to:contractAddress, from:null, data: outputData,value: eth},
     function(error,result){
         if(!error){
-            //console.log('BuyStartingSnail ',result);
+            console.log('BuyStartingSnail ',result);
             callback(result)
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -1619,11 +1626,11 @@ function hatcherySnail(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('hatcherySnail ',web3.toDecimal(result));
+            console.log('hatcherySnail ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -1636,11 +1643,11 @@ function hasSlug(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('hasSlug ',result);
+            console.log('hasSlug ',result);
             callback(result)
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -1653,11 +1660,11 @@ function divPerAcorn(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('divPerAcorn ',web3.toDecimal(result));
+            console.log('divPerAcorn ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -1670,11 +1677,11 @@ function UseRedEgg(_redAmount,callback){
     var endstr=web3.eth.sendTransaction({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('UseRedEgg ',result);
+            console.log('UseRedEgg ',result);
             callback(result)
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -1687,11 +1694,11 @@ function hasStartingSnail(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('hasStartingSnail ',result);
+            console.log('hasStartingSnail ',result);
             callback(result)
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -1704,11 +1711,11 @@ function ComputeSquare(base,callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('ComputeSquare ',web3.toDecimal(result));
+            console.log('ComputeSquare ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -1721,11 +1728,11 @@ function FundTree(eth,callback){
     var endstr=web3.eth.sendTransaction({to:contractAddress, from:null, data: outputData,value: eth},
     function(error,result){
         if(!error){
-            //console.log('FundTree ',result);
+            console.log('FundTree ',result);
             callback(result)
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -1738,11 +1745,11 @@ function ComputeAcornBuy(_ether,callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('ComputeAcornBuy ',web3.toDecimal(result));
+            console.log('ComputeAcornBuy ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -1755,11 +1762,11 @@ function redEgg(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('redEgg ',web3.toDecimal(result));
+            console.log('redEgg ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -1772,11 +1779,11 @@ function ComputeAcornCost(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('ComputeAcornCost ',web3.toDecimal(result));
+            console.log('ComputeAcornCost ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -1789,11 +1796,11 @@ function TADPOLE_BASE_REQ(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('TADPOLE_BASE_REQ ',web3.toDecimal(result));
+            console.log('TADPOLE_BASE_REQ ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -1806,28 +1813,28 @@ function roundPot(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('roundPot ',web3.toDecimal(result));
+            console.log('roundPot ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
 
 
-function ComputeSell(eggspent,callback){
+function ComputeSell(_eggspent,callback){
     
     
-    var outputData = myContract.ComputeSell.getData(eggspent);
+    var outputData = myContract.ComputeSell.getData(_eggspent);
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('ComputeSell ',web3.toDecimal(result));
+            console.log('ComputeSell ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -1840,11 +1847,11 @@ function GetSnail(adr,callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('GetSnail ',web3.toDecimal(result));
+            console.log('GetSnail ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -1857,11 +1864,11 @@ function lastHatch(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('lastHatch ',web3.toDecimal(result));
+            console.log('lastHatch ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -1874,11 +1881,11 @@ function playerBalance(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('playerBalance ',web3.toDecimal(result));
+            console.log('playerBalance ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -1891,11 +1898,11 @@ function ACORN_MULT(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('ACORN_MULT ',web3.toDecimal(result));
+            console.log('ACORN_MULT ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -1908,11 +1915,11 @@ function ComputeMyEgg(adr,callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('ComputeMyEgg ',web3.toDecimal(result));
+            console.log('ComputeMyEgg ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -1925,11 +1932,11 @@ function acorn(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('acorn ',web3.toDecimal(result));
+            console.log('acorn ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -1942,11 +1949,11 @@ function FindLettuce(callback){
     var endstr=web3.eth.sendTransaction({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('FindLettuce ',result);
+            console.log('FindLettuce ',result);
             callback(result)
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -1959,11 +1966,11 @@ function SellEgg(callback){
     var endstr=web3.eth.sendTransaction({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('SellEgg ',result);
+            console.log('SellEgg ',result);
             callback(result)
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -1976,11 +1983,11 @@ function GetLettuce(adr,callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('GetLettuce ',result);
+            console.log('GetLettuce ',result);
             callback(result)
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -1993,11 +2000,11 @@ function BecomeSpiderQueen(callback){
     var endstr=web3.eth.sendTransaction({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('BecomeSpiderQueen ',result);
+            console.log('BecomeSpiderQueen ',result);
             callback(result)
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2010,11 +2017,11 @@ function snailPot(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('snailPot ',web3.toDecimal(result));
+            console.log('snailPot ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2027,11 +2034,11 @@ function BuyEgg(eth,callback){
     var endstr=web3.eth.sendTransaction({to:contractAddress, from:null, data: outputData,value: eth},
     function(error,result){
         if(!error){
-            //console.log('BuyEgg ',result);
+            console.log('BuyEgg ',result);
             callback(result)
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2044,11 +2051,11 @@ function GetProd(adr,callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('GetProd ',web3.toDecimal(result));
+            console.log('GetProd ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2061,11 +2068,11 @@ function SQUIRREL_BASE_REQ(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('SQUIRREL_BASE_REQ ',web3.toDecimal(result));
+            console.log('SQUIRREL_BASE_REQ ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2078,11 +2085,11 @@ function GetMyEgg(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('GetMyEgg ',web3.toDecimal(result));
+            console.log('GetMyEgg ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2095,11 +2102,11 @@ function GrabRedHarvest(eth,callback){
     var endstr=web3.eth.sendTransaction({to:contractAddress, from:null, data: outputData,value: eth},
     function(error,result){
         if(!error){
-            //console.log('GrabRedHarvest ',result);
+            console.log('GrabRedHarvest ',result);
             callback(result)
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2112,11 +2119,11 @@ function HATCHING_COST(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('HATCHING_COST ',web3.toDecimal(result));
+            console.log('HATCHING_COST ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2129,11 +2136,11 @@ function GetSlug(adr,callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('GetSlug ',result);
+            console.log('GetSlug ',result);
             callback(result)
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2146,11 +2153,11 @@ function harvestStartTime(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('harvestStartTime ',web3.toDecimal(result));
+            console.log('harvestStartTime ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2163,11 +2170,11 @@ function currentSpiderOwner(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('currentSpiderOwner ',result);
+            console.log('currentSpiderOwner ',result);
             callback(result)
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2180,11 +2187,11 @@ function SLUG_MIN_REQ(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('SLUG_MIN_REQ ',web3.toDecimal(result));
+            console.log('SLUG_MIN_REQ ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2197,11 +2204,11 @@ function eggPot(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('eggPot ',web3.toDecimal(result));
+            console.log('eggPot ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2214,11 +2221,11 @@ function HatchEgg(eth,callback){
     var endstr=web3.eth.sendTransaction({to:contractAddress, from:null, data: outputData,value: eth},
     function(error,result){
         if(!error){
-            //console.log('HatchEgg ',result);
+            console.log('HatchEgg ',result);
             callback(result)
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2231,11 +2238,11 @@ function FROGKING_REQ(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('FROGKING_REQ ',web3.toDecimal(result));
+            console.log('FROGKING_REQ ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2248,11 +2255,11 @@ function BeginRound(callback){
     var endstr=web3.eth.sendTransaction({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('BeginRound ',result);
+            console.log('BeginRound ',result);
             callback(result)
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2265,11 +2272,11 @@ function marketEgg(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('marketEgg ',web3.toDecimal(result));
+            console.log('marketEgg ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2282,11 +2289,11 @@ function BecomeTadpolePrince(eth,callback){
     var endstr=web3.eth.sendTransaction({to:contractAddress, from:null, data: outputData,value: eth},
     function(error,result){
         if(!error){
-            //console.log('BecomeTadpolePrince ',result);
+            console.log('BecomeTadpolePrince ',result);
             callback(result)
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2299,11 +2306,11 @@ function dev(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('dev ',result);
+            console.log('dev ',result);
             callback(result)
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2316,11 +2323,11 @@ function prodBoost(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('prodBoost ',web3.toDecimal(result));
+            console.log('prodBoost ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2333,11 +2340,11 @@ function FindCarrot(eth,callback){
     var endstr=web3.eth.sendTransaction({to:contractAddress, from:null, data: outputData,value: eth},
     function(error,result){
         if(!error){
-            //console.log('FindCarrot ',result);
+            console.log('FindCarrot ',result);
             callback(result)
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2350,11 +2357,11 @@ function harvestStartCost(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('harvestStartCost ',web3.toDecimal(result));
+            console.log('harvestStartCost ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2367,11 +2374,11 @@ function WithdrawBalance(callback){
     var endstr=web3.eth.sendTransaction({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('WithdrawBalance ',result);
+            console.log('WithdrawBalance ',result);
             callback(result)
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2384,11 +2391,11 @@ function STARTING_SNAIL(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('STARTING_SNAIL ',web3.toDecimal(result));
+            console.log('STARTING_SNAIL ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2401,11 +2408,11 @@ function harvestEndCost(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('harvestEndCost ',web3.toDecimal(result));
+            console.log('harvestEndCost ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2418,11 +2425,11 @@ function ComputeMyShare(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('ComputeMyShare ',web3.toDecimal(result));
+            console.log('ComputeMyShare ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2435,11 +2442,11 @@ function currentLeader(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('currentLeader ',result);
+            console.log('currentLeader ',result);
             callback(result)
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2452,11 +2459,11 @@ function currentSnailmaster(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('currentSnailmaster ',result);
+            console.log('currentSnailmaster ',result);
             callback(result)
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2469,11 +2476,11 @@ function HARVEST_COUNT(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('HARVEST_COUNT ',web3.toDecimal(result));
+            console.log('HARVEST_COUNT ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2486,11 +2493,11 @@ function tadpoleReq(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('tadpoleReq ',web3.toDecimal(result));
+            console.log('tadpoleReq ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2503,11 +2510,11 @@ function claimedShare(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('claimedShare ',web3.toDecimal(result));
+            console.log('claimedShare ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2520,11 +2527,11 @@ function thronePot(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('thronePot ',web3.toDecimal(result));
+            console.log('thronePot ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2537,11 +2544,11 @@ function ComputeBuy(ethspent,callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('ComputeBuy ',web3.toDecimal(result));
+            console.log('ComputeBuy ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2554,11 +2561,11 @@ function maxAcorn(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('maxAcorn ',web3.toDecimal(result));
+            console.log('maxAcorn ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2571,11 +2578,11 @@ function spiderReq(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('spiderReq ',web3.toDecimal(result));
+            console.log('spiderReq ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2588,11 +2595,11 @@ function TIME_TO_HATCH_1SNAIL(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('TIME_TO_HATCH_1SNAIL ',web3.toDecimal(result));
+            console.log('TIME_TO_HATCH_1SNAIL ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2605,11 +2612,11 @@ function CARROT_COST(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('CARROT_COST ',web3.toDecimal(result));
+            console.log('CARROT_COST ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2622,11 +2629,11 @@ function BecomeSquirrelDuke(callback){
     var endstr=web3.eth.sendTransaction({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('BecomeSquirrelDuke ',result);
+            console.log('BecomeSquirrelDuke ',result);
             callback(result)
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2639,11 +2646,11 @@ function GetCarrot(adr,callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('GetCarrot ',web3.toDecimal(result));
+            console.log('GetCarrot ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2656,11 +2663,11 @@ function hasLettuce(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('hasLettuce ',result);
+            console.log('hasLettuce ',result);
             callback(result)
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2673,11 +2680,11 @@ function nextRoundStart(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('nextRoundStart ',web3.toDecimal(result));
+            console.log('nextRoundStart ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2690,11 +2697,11 @@ function HARVEST_DURATION(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('HARVEST_DURATION ',web3.toDecimal(result));
+            console.log('HARVEST_DURATION ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2707,11 +2714,11 @@ function JOINING_ROUND_COST(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('JOINING_ROUND_COST ',web3.toDecimal(result));
+            console.log('JOINING_ROUND_COST ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2724,11 +2731,11 @@ function GetMyRound(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('GetMyRound ',web3.toDecimal(result));
+            console.log('GetMyRound ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2741,11 +2748,11 @@ function claimedEgg(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('claimedEgg ',web3.toDecimal(result));
+            console.log('claimedEgg ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2758,11 +2765,11 @@ function HARVEST_DUR_ROOT(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('HARVEST_DUR_ROOT ',web3.toDecimal(result));
+            console.log('HARVEST_DUR_ROOT ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2775,11 +2782,11 @@ function lettuceReq(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('lettuceReq ',web3.toDecimal(result));
+            console.log('lettuceReq ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2792,11 +2799,11 @@ function FindSlug(callback){
     var endstr=web3.eth.sendTransaction({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('FindSlug ',result);
+            console.log('FindSlug ',result);
             callback(result)
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2809,11 +2816,11 @@ function squirrelReq(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('squirrelReq ',web3.toDecimal(result));
+            console.log('squirrelReq ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2826,11 +2833,11 @@ function gameActive(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('gameActive ',result);
+            console.log('gameActive ',result);
             callback(result)
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2843,11 +2850,11 @@ function currentSquirrelOwner(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('currentSquirrelOwner ',result);
+            console.log('currentSquirrelOwner ',result);
             callback(result)
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -2860,11 +2867,11 @@ function currentTadpoleOwner(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            //console.log('currentTadpoleOwner ',result);
+            console.log('currentTadpoleOwner ',result);
             callback(result)
         }
         else{
-            //console.log('transaction failed with ',error.message)
+            console.log('transaction failed with ',error.message)
         }
     });
 }
@@ -3164,11 +3171,11 @@ var wonroundEvent = myContract.WonRound();
 wonroundEvent.watch(function(error, result){
     if(!error){
 		//console.log(result);
-		//if(checkHash(storetxhash, result.transactionHash) != 0) {
+		if(checkHash(storetxhash, result.transactionHash) != 0) {
 			date24();
 			eventlogdoc.innerHTML += "<br>[" + datetext + "] " + formatEthAdr(result.args.roundwinner) + " WINS ROUND " + result.args.round + " AND EARNS " + formatEthValue2(web3.fromWei(result.args.eth,'ether')) + " POA!";
 			logboxscroll.scrollTop = logboxscroll.scrollHeight;
-		//}
+		}
 	}
 });
 
