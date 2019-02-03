@@ -2894,9 +2894,9 @@ function computeLeaderboard() {
 	console.log("pushing e_hatched: " + d_leaderboard[5].hatchery);
 	d_leaderboard.sort(function (a, b) {
 		console.log("a.hatchery : " + a.hatchery + ". b.hatchery : " + b.hatchery);
-		return a.hatchery - b.hatchery;
+		return b.hatchery - a.hatchery;
 	});
-	console.log("sorted leaderboard. lowest result: " + d_leaderboard[5]);
+	console.log("sorted leaderboard. lowest result: " + d_leaderboard[5].address);
 	d_leaderboard.pop();
 	console.log("popped leaderboard. number of leaders: " + d_leaderboard.length);
 }
