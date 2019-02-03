@@ -3038,6 +3038,7 @@ function runLog(){
 					logboxscroll.scrollTop = logboxscroll.scrollHeight;
 				}
 			}
+			slowupdateLeaderboard();
 		}
 		else{
 			////console.log("problem!");
