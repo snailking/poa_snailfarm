@@ -255,7 +255,7 @@ function refreshData(){
 	
 	updateMarketEgg();
 	updateMaxEggBuy();
-	updateMaxSellReward();
+	updateMaxSaleReward();
 	updateMaxAcorn();
 	updateAcornCost();
 	
