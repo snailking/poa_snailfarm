@@ -2952,7 +2952,8 @@ var e_hatched = { address: "", hatchery: 0 };
 
 function runLog(){
 	if(twoDaysBlock > 0){
-		ranLog = true;
+		eventlogdoc.innerHTML = "";
+		storetxhash = [];
 		myContract.allEvents({ fromBlock: twoDaysBlock, toBlock: 'latest' }).get(function(error, result){
 			if(!error){
 				//console.log(result);
