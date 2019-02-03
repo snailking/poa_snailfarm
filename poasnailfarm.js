@@ -354,12 +354,22 @@ function refreshDataSlow(){
 	showLeaderboard();
 	
 	slowupdatePlayerEgg();
+	
+	updateLog();
 	////////console.log("refreshed leaderboard fully");
 }
 	
 
 var gameactivedoc = document.getElementById('gameactive');
 var gameactive2doc = document.getElementById('gameactive2');
+
+//Update log if player pressed button to load past events
+//This is to avoid autoupdating on phones, where it might lag out
+function updateLog(){
+	if(ranLog == true){
+		runLog();
+	}
+}
 
 //Current state of the game
 function updateGameActive(){
@@ -1059,7 +1069,7 @@ function updateMaxEggBuy(){
 //Maximum ETH in one sale
 function updateMaxSaleReward(){
 	var maxsalerewarddoc = document.getElementById('maxsalereward');
-	maxsalerewarddoc.innerHTML = a_eggPot / 20;
+	maxsalerewarddoc.innerHTML = parseFloat(a_eggPot / 20).toFixed(4);
 }
 
 //Current number of acorns
@@ -2941,8 +2951,9 @@ var eventlogdoc = document.getElementById("eventlog");
 var e_hatched = { address: "", hatchery: 0 };
 
 function runLog(){
-	if(ranLog == false && twoDaysBlock > 0){
+	if(twoDaysBlock > 0){
 		ranLog = true;
+		eventlogdoc.innerHTML = "";
 		myContract.allEvents({ fromBlock: twoDaysBlock, toBlock: 'latest' }).get(function(error, result){
 			if(!error){
 				//console.log(result);
