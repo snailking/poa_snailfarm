@@ -2886,31 +2886,22 @@ function currentTadpoleOwner(callback){
     });
 }
 
-/* EVENT WATCH */
+/* LEADERBOARD COMPUTE */
 
-//Store transaction hash for each event, and check before executing result, as web3 events fire twice
-var storetxhash = [];
-
-//Check equivalency
-function checkHash(txarray, txhash) {
-	var i = 0;
-	do {
-		if(txarray[i] == txhash) {
-			return 0;
-		}
-		i++;
-	}
-	while(i < txarray.length);
-	//Add new tx hash
-	txarray.push(txhash);
-	//Remove first tx hash if there's more than 16 hashes saved
-	if(txarray.length > 16) {
-		txarray.shift();
-	}
+//Compute Leaderboard 2
+function computeLeaderboard() {
+	d_leaderboard.push(e_hatched);
+	console.log("pushing e_hatched. d_leaderboard: " + d_leaderboard);
+	d_leaderboard.sort(function (a, b) {
+		return a.hatchery - b.hatchery;
+	});
+	console.log("sorted leaderboard. lowest result: " + d_leaderboard[5]);
+	d_leaderboard.pop();
+	console.log("popped leaderboard. number of leaders: " + d_leaderboard.length);
 }
-		
-//Compute Leaderboard
 
+/*
+//Compute Leaderboard
 function computeLeaderboard() {
 	var lowest = d_leaderboard[0].hatchery;
 	var position = 0; 
@@ -2942,6 +2933,29 @@ function computeLeaderboard() {
 	}
 	showLeaderboard();
 }
+*/
+/* EVENT WATCH */
+
+//Store transaction hash for each event, and check before executing result, as web3 events fire twice
+var storetxhash = [];
+
+//Check equivalency
+function checkHash(txarray, txhash) {
+	var i = 0;
+	do {
+		if(txarray[i] == txhash) {
+			return 0;
+		}
+		i++;
+	}
+	while(i < txarray.length);
+	//Add new tx hash
+	txarray.push(txhash);
+	//Remove first tx hash if there's more than 16 hashes saved
+	if(txarray.length > 16) {
+		txarray.shift();
+	}
+}
 
 /* EVENTS */
 
@@ -2953,7 +2967,6 @@ var e_hatched = { address: "", hatchery: 0 };
 startBlock = twoDaysBlock;
 
 function runLog(){
-	storetxhash = [];
 	ranLog = true;
 	myContract.allEvents({ fromBlock: startBlock, toBlock: 'latest' }).get(function(error, result){
 		if(!error){
