@@ -2954,6 +2954,7 @@ function runLog(){
 	if(twoDaysBlock > 0){
 		eventlogdoc.innerHTML = "";
 		storetxhash = [];
+		ranLog = true;
 		myContract.allEvents({ fromBlock: twoDaysBlock, toBlock: 'latest' }).get(function(error, result){
 			if(!error){
 				//console.log(result);
@@ -3035,7 +3036,7 @@ function runLog(){
 		});
 	}
 }
-
+/*
 var hatchEvent = myContract.Hatched();
 
 hatchEvent.watch(function(error, result){
