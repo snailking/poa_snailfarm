@@ -104,7 +104,7 @@ checkBlock();
 
 //Get timestamp for log
 function dateLog(_blockNumber) {
-	d = new Date((timeLaunch + ((_blockNumber - launchBlock) * 6.5)) * 1000); //change to 5 for POA core
+	d = new Date((timeLaunch + ((_blockNumber - launchBlock) * 5)) * 1000); //change to 5 for POA core
 	////console.log(d);
 	datetext = d.toTimeString();
 	datetext = datetext.split(' ')[0];
