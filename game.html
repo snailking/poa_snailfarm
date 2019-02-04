@@ -333,7 +333,7 @@
 			</div>
 			<div class="container-beige">
 					<p>To get started, you must first buy starting Snails. This one-time transaction will allow you to play <b>every</b> round, which you can join for the same cost.</p><br>
-					<p>Your Snails continuously <b>lay Eggs</b>, which you can hatch into even more Snails for a slight, fixed POA cost. Each Egg can hatch into <b>more than one Snail</b>: the more Boosts you have, the more Snails per Egg.</p><br>
+					<p>Your Snails continuously <b>lay Eggs</b>, which you can hatch into even more Snails for a small POA cost. Each Egg can hatch into <b>more than one Snail</b>: the more Boosts you have, the more Snails per Egg.</p><br>
 					<p>Eggs can be <b>bought and sold directly from the smart contract</b>. The price of Eggs <b>vary widely</b> based on the current supply of Eggs and the eggpot. If the eggpot has a lot of POA but the market holds very few Eggs, it's time to sell. On the contrary, if the eggpot has little POA but the market is filled with Eggs, it's a good opportunity to buy.</p><br>
 			</div>
 			<div class="container-beige">		
@@ -343,11 +343,11 @@
 			<div class="container-beige">		
 					<p>Hatch Boosts exist in two kinds: Food, and Friends. You can only hold one of each particular boost. Both kind of Boosts give the same increase in hatch size: <b>+1 boost = +1 snail</b> per egg.</p><br>
 					<p>Food Boosts are <b>your own</b>. These boosts are Lettuce, Carrot and Slug. They cost a certain amount of resources, and last for a number of rounds before disappearing.</p><br>
-					<p>Friend Boosts are competitive: <b>only one player can own a specific friend boost</b> at a time.These boosts are the SpiderQueen, the SquirrelDuke and the TadpolePrince. Each Friend flip <b>increases the requirement</b> to get that boost. It is possible for a single player to hold several different Friends at once.</p><br>
+					<p>Friend Boosts are competitive: <b>only one player can own a specific friend boost</b> at a time. These boosts are the SpiderQueen, the SquirrelDuke and the TadpolePrince. Each Friend flip <b>increases the requirement</b> to get that boost. It is possible for a single player to hold several different Friends at once.</p><br>
 			</div>
 			<div class="container-beige">		
 					<p>Through the Poatree, players can <b>invest in the bankroll</b> of the game itself. Funding the Tree with POA gives a number of acorns in return. <b>20% of all POA spent</b> on the game is distributed between Acorn holders.</p><br>
-					<p>Before the game starts for the first time, acorns are at <b>half price</b>. After that, their price lowers slightly with every round. Like Red Eggs, <b>Acorns carry over between rounds</b>. Acorns cannot be sold. Funding the game means <b>receiving dividends eternally</b>, although the price decrease ensures a dilution of investor shares to encourage newcomers.</p><br>
+					<p>Before the game starts for the first time, acorns are at <b>half price</b>. After that, their price go to full price, then lower slightly with every round. Like Red Eggs, <b>Acorns carry over between rounds</b>. Acorns cannot be sold. Funding the game means <b>receiving dividends eternally</b>, although the price decrease ensures a dilution of investor shares to encourage newcomers.</p><br>
 			</div>
 			<div class="container-beige">		
 					<p>While the POA version of SnailFarm isn't part of it, a whole ecosystem of Ethereum Snail games exist. Amongst them is a master game called "SnailThrone", where holders are entitled to part of the ETH spent everywhere else. Check out SnailThrone if you want to know more: <a href="https://snailking.github.io/snailthrone/" target="_blank">https://snailking.github.io/snailthrone/</a></p><br>
@@ -369,7 +369,8 @@
 			</div>
 			<h3>SNAILS</h3>
 			<div class="container-beige">
-				<p>Players start with 300 Snails after buying their starting Snails. These starting Snails cost 0.04 POA.</p>
+				<p>Players start with 300 Snails after buying their starting Snails. These starting Snails cost 0.1% of the SnailPot.</p>
+				<p>Joining further rounds has the same POA cost.</p>
 				<p>Snails lay Eggs at a rate of 1 per Snail per day. 300 Snails = 300 Eggs in 24 hours.</p>
 				<p>Snails cannot produce more Eggs than their numbers. Hatch at least once a day, if you don't want to waste potential Eggs.</p>
 				<p>Hatching costs 0.02% of the SnailPot. If the hatch transaction results in 1M snails or more, the player wins the round.</p>
@@ -381,19 +382,19 @@
 				<p>This means there are diminishing returns, with smaller buys getting proportionally more eggs.</p>
 				<p>No more than 10% of the Egg supply can be bought at once. If a player spends more than the maximum buy, this POA is refunded to the player balance.</p>
 				<p>Eggs bought don't interfere with the maximum amount of Eggs Snails can lay. If you have 300 Snails and 100 Eggs (leaving you 200 potential Eggs) and buy 400 Eggs, your Snails can still lay 200 more Eggs, bringing you to a total of 700.</p>
-				<p>Eggs can be sold to the smart contract with the following formula: POA = (eggs / (eggs + marketeggs)) * eggpot / 2</p>
+				<p>Eggs can be sold to the smart contract with the following formula: POA = (eggs / marketeggs) * eggpot / 2</p>
 				<p>Like with buying, there are diminishing returns. The less eggs sold, the more POA per eggs.</p>
-				<p>Eggs are sold all at once, but no more than 1/10 of the supply can be sold at once. This makes the maximum reward about half of the eggpot.</p>
+				<p>Eggs are sold all at once, but no more than 1/10 of the supply can be sold at once. In a single sale, the maximum reward is 5% of the eggpot.</p>
 				<p>Sell early and sell often!</p>
 			</div>
 			<h3>RED EGGS</h3>
 			<div class="container-beige">
 				<p>Once they join a new round, players receive 1 Red Egg for the square root of their Snails.</p>
 				<p>(If you have 300 Snails at the end of a round, the square root of 300 is 17, and so you get 17 Reds.)</p>
-				<p>Red Eggs can be hatched at no cost. However, their main utility are to claim various Boosts or the Snailmaster position itself.</p>
+				<p>Red Eggs can be hatched at no cost. However, their main utility is to claim various Boosts.</p>
 				<p>Red Eggs benefit from Hatch Boosts the same way as normal Eggs.</p>
-				<p>While Red Eggs cannot be sold, they can be bought through the Red Harvest. The Red Harvest puts 100 Red Eggs for sale, for 1/4th to the Round jackpot.</p>
-				<p>This price then decreases all the way to 0.02 POA, over a period of 1 hour. This price decrease is sharp at first, then slower. The exact formula is: basePrice - maximumPriceChange * squareRootTimeElapsed / squareRoot1Hour</p>
+				<p>While Red Eggs cannot be sold, they can be bought through the Red Harvest. The Red Harvest puts 100 Red Eggs for sale, for 1/4th of the Round jackpot.</p>
+				<p>This price then decreases all the way to a tenth of that cost, over a period of 1 hour. This price decrease is sharp at first, then slower. The exact formula is: basePrice - maximumPriceChange * squareRootTimeElapsed / squareRoot1Hour</p>
 				<p>Once a player grabs a Red Harvest, another one immediately starts at the original price (1/4 round jackpot).</p>
 			</div>
 			<h3>FOOD</h3>
@@ -411,7 +412,6 @@
 				<p>The SquirrelDuke costs 2 Red Eggs. This requirement doubles with every flip.</p>
 				<p>The TadpolePrince costs 0.5% of the SnailPot. This requirement increases by 20% with every flip. On the next flip, the Tadpole owner will receive 110% of the POA he spent.</p>
 				<p>Players can specify a higher amount of POA than strictly required, in order to ensure they get the Tadpole through several flips. Any POA over the requirement will be refunded to the player balance.</p>
-				<p>The Slug should be seen as a longterm play, giving up on a round in order to gain a significant advantage in further rounds.</p>
 			</div>
 			<h3>ACORNS</h3>
 			<div class="container-beige">
