@@ -295,6 +295,7 @@ function refreshData(){
 	updateLettuceReq();
 	
 	updateHatchEstimate();
+	updateLog();
 	//runLog();
 }
 
@@ -355,7 +356,7 @@ function refreshDataSlow(){
 	
 	slowupdatePlayerEgg();
 	
-	updateLog();
+	//updateLog();
 	//////////console.log("refreshed leaderboard fully");
 }
 	
@@ -1044,7 +1045,7 @@ function updateMarketEgg(){
 //Maximum eggs that can be bought
 function updateMaxEggBuy(){
 	var maxeggbuydoc = document.getElementById('maxeggbuy');
-	maxeggbuydoc.innerHTML = a_marketEgg / 10;
+	maxeggbuydoc.innerHTML = parseInt(a_marketEgg / 10);
 }
 
 //Maximum ETH in one sale
