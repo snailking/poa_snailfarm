@@ -2955,7 +2955,7 @@ function checkHash(txarray, txhash) {
 var logboxscroll = document.getElementById('logboxscroll');
 var eventlogdoc = document.getElementById("eventlog");
 
-var e_hatched = { address: "", hatchery: 0 };
+var e_hatched = { address: "", hatchery: 0, egg: 0, red: 0 };
 
 startBlock = twoDaysBlock;
 
@@ -2963,7 +2963,7 @@ function runLog(){
 	ranLog = true;
 	myContract.allEvents({ fromBlock: startBlock, toBlock: 'latest' }).get(function(error, result){
 		if(!error){
-			console.log(result);
+			//console.log(result);
 			var i = 0;
 			for(i = 0; i < result.length; i++){
 				if(checkHash(storetxhash, result[i].transactionHash) != 0) {
@@ -2973,14 +2973,12 @@ function runLog(){
 					dateLog(result[i].blockNumber);
 					if(result[i].event == "Hatched"){
 						eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.player) + " hatched " + result[i].args.eggs + " Eggs into " + result[i].args.snails + " Snails, and has " + result[i].args.hatchery + " Snails in total.";
-						e_hatched.address = result[i].args.player;
-						e_hatched.hatchery = parseInt(result[i].args.hatchery);
+						e_hatched = { address: result[i].args.player, hatchery: result[i].args.hatchery, egg: 0, red: 0 };
 						computeLeaderboard();
 							
 					} else if(result[i].event == "UsedRed"){
 						eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.player) + " hatched " + result[i].args.eggs + " Reds into " + result[i].args.snails + " Snails, and has a total of " + result[i].args.hatchery + " Snails.";
-						e_hatched.address = result[i].args.player;
-						e_hatched.hatchery = result[i].args.hatchery;
+						e_hatched = { address: result[i].args.player, hatchery: result[i].args.hatchery, egg: 0, red: 0 };
 						computeLeaderboard();
 							
 					} else if(result[i].event == "FundedTree"){
@@ -3054,8 +3052,7 @@ hatchEvent.watch(function(error, result){
 		if(checkHash(storetxhash, result.transactionHash) != 0) {
 			date24();
 			eventlogdoc.innerHTML += "<br>[" + datetext + "] " + formatEthAdr(result.args.player) + " hatched " + result.args.eggs + " Eggs into " + result.args.snails + " Snails, and has " + result.args.hatchery + " Snails in total.";
-			e_hatched.address = result.args.player;
-			e_hatched.hatchery = parseInt(result.args.hatchery); //seems to return an array/object
+			e_hatched = { address: result.args.player, hatchery: result.args.hatchery, egg: 0, red: 0 };
 			logboxscroll.scrollTop = logboxscroll.scrollHeight;
 			computeLeaderboard();
 		}
@@ -3070,8 +3067,7 @@ usedredEvent.watch(function(error, result){
 		if(checkHash(storetxhash, result.transactionHash) != 0) {
 			date24();
 			eventlogdoc.innerHTML += "<br>[" + datetext + "] " + formatEthAdr(result.args.player) + " hatched " + result.args.eggs + " Reds into " + result.args.snails + " Snails, and has a total of " + result.args.hatchery + " Snails.";
-			e_hatched.address = result.args.player;
-			e_hatched.hatchery = result.args.hatchery; //seems to return an array/object
+			e_hatched = { address: result.args.player, hatchery: result.args.hatchery, egg: 0, red: 0 };
 			logboxscroll.scrollTop = logboxscroll.scrollHeight;
 			computeLeaderboard();
 		}
