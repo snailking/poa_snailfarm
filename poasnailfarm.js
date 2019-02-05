@@ -295,7 +295,7 @@ function refreshData(){
 	updateLettuceReq();
 	
 	updateHatchEstimate();
-	updateLog();
+	//updateLog();
 	//runLog();
 }
 
@@ -3044,7 +3044,7 @@ function runLog(){
 		}
 	});
 }
-/*
+
 var hatchEvent = myContract.Hatched();
 
 hatchEvent.watch(function(error, result){
@@ -3280,7 +3280,7 @@ boostedpotEvent.watch(function(error, result){
 		}
 	}
 });
-*/
+
 //--
 
 
