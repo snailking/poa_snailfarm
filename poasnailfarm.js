@@ -193,6 +193,8 @@ var f_redhatch = 0;
 var m_account = "waiting for web3";
 var l_account;
 
+var u_updateEvent = false;
+
 //Leaderboard Array
 
 var d_leaderboard = [
@@ -295,7 +297,7 @@ function refreshData(){
 	updateLettuceReq();
 	
 	updateHatchEstimate();
-	//updateLog();
+	updateLog();
 	//runLog();
 }
 
@@ -364,10 +366,14 @@ function refreshDataSlow(){
 var gameactivedoc = document.getElementById('gameactive');
 var gameactive2doc = document.getElementById('gameactive2');
 
-//Update log if player pressed button to load past events
-//This is to avoid autoupdating on phones, where it might lag out
+//Changes u_updateLog to true, manual choice in case event watching fails
+function startLogging(){
+	u_updateEvent = true;
+}
+
+//Update log every few seconds if player chose to
 function updateLog(){
-	if(ranLog == true){
+	if(u_updateEvent == true){
 		runLog();
 	}
 }
