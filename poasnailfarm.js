@@ -4,7 +4,7 @@
 //var contractAddress="0x159C608D39852bdaEDA85a16A55654D60DBc2422" // Sokol 4
 //var contractAddress="0xe8826d573d2Bfb04458CABeB3EA703A109113843" // Sokol 5
 //var contractAddress="0xA1C8Cc49f38D0546dA099F4249F0756bAAB4646d" // Sokol 6
-var contractAddress="0xbC02d5c3a34094a643f2202F877B0283cE2E82D2" // POA Core
+var contractAddress="0x13873Fe7a0e2C82434fA7Dcd3A08FBBd6Ba00217" // POA Core
 
 /* WEB3 DETECTION */
 
