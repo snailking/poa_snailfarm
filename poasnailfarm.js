@@ -3,7 +3,8 @@
 //var contractAddress="0xB9D95fE3EFDA5A8f42926332De896Ad083440CA9" // Sokol 3
 //var contractAddress="0x159C608D39852bdaEDA85a16A55654D60DBc2422" // Sokol 4
 //var contractAddress="0xe8826d573d2Bfb04458CABeB3EA703A109113843" // Sokol 5
-var contractAddress="0xA1C8Cc49f38D0546dA099F4249F0756bAAB4646d" // Sokol 6
+//var contractAddress="0xA1C8Cc49f38D0546dA099F4249F0756bAAB4646d" // Sokol 6
+var contractAddress="0xbC02d5c3a34094a643f2202F877B0283cE2E82D2" // POA Core
 
 /* WEB3 DETECTION */
 
