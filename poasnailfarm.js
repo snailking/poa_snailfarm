@@ -427,9 +427,9 @@ function updatePlayerRound() {
 function updateProportionalCost() {
 	var carrotcostdoc = document.getElementById('carrotcost');
 	var hatchcostdoc = document.getElementById('hatchcost');
-	a_joinCost = (formatEthValue2(a_snailPot / 1000) + parseFloat(0.001)).toFixed(3);
-	a_hatchCost = (formatEthValue2(a_snailPot / 5000) + parseFloat(0.001)).toFixed(3);
-	a_carrotCost = (formatEthValue2(a_snailPot / 200) + parseFloat(0.001)).toFixed(3);
+	a_joinCost = (formatEthValue2(a_snailPot / 1000) + parseFloat(0.1)).toFixed(3);
+	a_hatchCost = (formatEthValue2(a_snailPot / 5000) + parseFloat(0.02)).toFixed(3);
+	a_carrotCost = (formatEthValue2(a_snailPot / 200) + parseFloat(0.5)).toFixed(3);
 	carrotcostdoc.innerHTML = a_carrotCost;
 	hatchcostdoc.innerHTML = a_hatchCost;
 }
