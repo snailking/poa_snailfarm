@@ -88,8 +88,8 @@ window.onclick = function(event) {
 
 /* PAST EVENT LOG */
 
-var timeLaunch = 1548855450; //Sokol
-var launchBlock = 6903779; //Sokol
+var timeLaunch = 1549674700; //POA Core
+var launchBlock = 7215030; //POA Core
 
 var twoDaysBlock = 0;
 var ranLog = false;
@@ -126,7 +126,7 @@ function formatEthValue2(ethstr){
 //Truncates ETH address to first 8 numbers
 function formatEthAdr(adr){
 	var _smallAdr = adr.substring(0, 10);
-	var _stringLink = '<a href="https://etherscan.io/address/' + adr + '" target="_blank" style="text-decoration:none; color:inherit;">' + _smallAdr + '</a>';
+	var _stringLink = '<a href="https://blockscout.com/poa/core/address/' + adr + '" target="_blank" style="text-decoration:none; color:inherit;">' + _smallAdr + '</a>';
 	return _stringLink;
 }
 
@@ -3234,7 +3234,7 @@ grabbedharvestEvent.watch(function(error, result){
 		////console.log(result);
 		if(checkHash(storetxhash, result.transactionHash) != 0) {
 			date24();
-			eventlogdoc.innerHTML += "<br>[" + datetext + "] " + formatEthAdr(result.args.player) + " grabbed the Red Harvest by spending " + formatEthValue2(web3.fromWei(result.args.eth,'ether')) + " ETH.";
+			eventlogdoc.innerHTML += "<br>[" + datetext + "] " + formatEthAdr(result.args.player) + " grabbed the Red Harvest by spending " + formatEthValue2(web3.fromWei(result.args.eth,'ether')) + " POA.";
 			logboxscroll.scrollTop = logboxscroll.scrollHeight;
 		}
 	}
