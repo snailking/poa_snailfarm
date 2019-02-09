@@ -97,7 +97,7 @@ var ranLog = false;
 function checkBlock(){
 	web3.eth.getBlockNumber(function (error, result){
 		////console.log("block number is " + result);
-		twoDaysBlock = result - 10000; //~half a day
+		twoDaysBlock = result - 5000; //~half a day
 	});
 }
 
@@ -214,7 +214,6 @@ function main(){
     //////console.log('Main loop started.');
     controlLoop();
 	controlLoopFast();
-	controlLoopLog();
 	controlLoopSlow();
 	controlLoopEgg();
 }
@@ -236,12 +235,6 @@ function controlLoopSlow(){
 	refreshDataSlow();
 	//////////console.log("slow loop");
 	setTimeout(controlLoopSlow,60000);
-}
-
-//One second loop for log refresh
-function controlLoopLog(){
-	updateLog();
-	setTimeout(controlLoopLog,1000);
 }
 
 //Super fast 100ms loop for eggs approximation
@@ -306,7 +299,7 @@ function refreshData(){
 	updateLettuceReq();
 	
 	updateHatchEstimate();
-	//updateLog();
+	updateLog();
 	//runLog();
 }
 
@@ -2983,7 +2976,7 @@ function runLog(){
 			var i = 0;
 			if(result.length > 0){ //check if we have events, if not stop the loop
 				p_keepUpdating = true;
-				for(i = 0; i < 20; i++){ //loop through only 40 events at most
+				for(i = 0; i < 40; i++){ //loop through only 40 events at most
 					if(i < result.length){ //make sure there's enough events
 						if(checkHash(storetxhash, result[i].transactionHash) != 0) {
 							startBlock = result[i].blockNumber; //store the last blocknumber to start next loop
