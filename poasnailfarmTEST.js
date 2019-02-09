@@ -2976,7 +2976,7 @@ function runLog(){
 			var i = 0;
 			if(result.length > 0){ //check if we have events, if not stop the loop
 				p_keepUpdating = true;
-				for(i = 0; i < 20; i++){ //loop through only 20 events at most
+				for(i = 0; i < 40; i++){ //loop through only 40 events at most
 					if(i < result.length){ //make sure there's enough events
 						if(checkHash(storetxhash, result[i].transactionHash) != 0) {
 							startBlock = result[i].blockNumber; //store the last blocknumber to start next loop
