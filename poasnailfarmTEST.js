@@ -91,13 +91,13 @@ window.onclick = function(event) {
 var timeLaunch = 1549674700; //POA Core
 var launchBlock = 7215030; //POA Core
 
-var twoDaysBlock = 0;
+var startBlock = 0;
 var ranLog = false;
 
 function checkBlock(){
 	web3.eth.getBlockNumber(function (error, result){
-		////console.log("block number is " + result);
-		twoDaysBlock = result - 5000; //~half a day
+		console.log("block number is " + result);
+		startBlock = result - 10000; //~half a day
 	});
 }
 
@@ -2965,8 +2965,6 @@ var logboxscroll = document.getElementById('logboxscroll');
 var eventlogdoc = document.getElementById("eventlog");
 
 var e_hatched = { address: "", hatchery: 0, egg: 0, red: 0 };
-
-startBlock = twoDaysBlock;
 
 function runLog(){
 	ranLog = true;
