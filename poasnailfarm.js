@@ -91,13 +91,13 @@ window.onclick = function(event) {
 var timeLaunch = 1549674700; //POA Core
 var launchBlock = 7215030; //POA Core
 
-var twoDaysBlock = 0;
+var startBlock = 0;
 var ranLog = false;
 
 function checkBlock(){
 	web3.eth.getBlockNumber(function (error, result){
-		////console.log("block number is " + result);
-		twoDaysBlock = result - 10000; //~half a day
+		console.log("block number is " + result);
+		startBlock = result - 10000; //~half a day
 	});
 }
 
@@ -195,6 +195,7 @@ var m_account = "waiting for web3";
 var l_account;
 
 var u_updateEvent = false;
+var p_keepUpdating = false;
 
 //Leaderboard Array
 
@@ -374,7 +375,7 @@ function startLogging(){
 
 //Update log every few seconds if player chose to
 function updateLog(){
-	if(u_updateEvent == true){
+	if(u_updateEvent == true || p_keepUpdating == true){
 		runLog();
 	}
 }
@@ -2965,86 +2966,89 @@ var eventlogdoc = document.getElementById("eventlog");
 
 var e_hatched = { address: "", hatchery: 0, egg: 0, red: 0 };
 
-startBlock = twoDaysBlock;
-
 function runLog(){
 	ranLog = true;
 	myContract.allEvents({ fromBlock: startBlock, toBlock: 'latest' }).get(function(error, result){
 		if(!error){
 			//console.log(result);
 			var i = 0;
-			for(i = 0; i < result.length; i++){
-				if(checkHash(storetxhash, result[i].transactionHash) != 0) {
-					if(i == (result.length - 1)){
-						startBlock = result[i].blockNumber;
-					}
-					dateLog(result[i].blockNumber);
-					if(result[i].event == "Hatched"){
-						eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.player) + " hatched " + result[i].args.eggs + " Eggs into " + result[i].args.snails + " Snails, and has " + result[i].args.hatchery + " Snails in total.";
-						e_hatched = { address: result[i].args.player, hatchery: result[i].args.hatchery, egg: 0, red: 0 };
-						computeLeaderboard();
-							
-					} else if(result[i].event == "UsedRed"){
-						eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.player) + " hatched " + result[i].args.eggs + " Reds into " + result[i].args.snails + " Snails, and has a total of " + result[i].args.hatchery + " Snails.";
-						e_hatched = { address: result[i].args.player, hatchery: result[i].args.hatchery, egg: 0, red: 0 };
-						computeLeaderboard();
-							
-					} else if(result[i].event == "FundedTree"){
-						eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.player) + " funded the PoaTree with " + formatEthValue2(web3.fromWei(result[i].args.eth,'ether')) + " POA and receives " + result[i].args.acorns + " Acorns.";
+			if(result.length > 0){ //check if we have events, if not stop the loop
+				p_keepUpdating = true;
+				for(i = 0; i < 40; i++){ //loop through only 40 events at most
+					if(i < result.length){ //make sure there's enough events
+						if(checkHash(storetxhash, result[i].transactionHash) != 0) {
+							startBlock = result[i].blockNumber; //store the last blocknumber to start next loop
+							dateLog(result[i].blockNumber);
+							if(result[i].event == "Hatched"){
+								eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.player) + " hatched " + result[i].args.eggs + " Eggs into " + result[i].args.snails + " Snails, and has " + result[i].args.hatchery + " Snails in total.";
+								e_hatched = { address: result[i].args.player, hatchery: result[i].args.hatchery, egg: 0, red: 0 };
+								computeLeaderboard();
+									
+							} else if(result[i].event == "UsedRed"){
+								eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.player) + " hatched " + result[i].args.eggs + " Reds into " + result[i].args.snails + " Snails, and has a total of " + result[i].args.hatchery + " Snails.";
+								e_hatched = { address: result[i].args.player, hatchery: result[i].args.hatchery, egg: 0, red: 0 };
+								computeLeaderboard();
+									
+							} else if(result[i].event == "FundedTree"){
+								eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.player) + " funded the PoaTree with " + formatEthValue2(web3.fromWei(result[i].args.eth,'ether')) + " POA and receives " + result[i].args.acorns + " Acorns.";
 
-					} else if(result[i].event == "ClaimedShare"){
-						eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.player) + " claimed " + formatEthValue2(web3.fromWei(result[i].args.eth,'ether')) + " POA thanks to their " + result[i].args.acorns + " Acorns.";
-	
-					} else if(result[i].event == "WithdrewBalance"){
-						eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.player) + " withdrew " + formatEthValue2(web3.fromWei(result[i].args.eth,'ether')) + " POA from their balance.";
+							} else if(result[i].event == "ClaimedShare"){
+								eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.player) + " claimed " + formatEthValue2(web3.fromWei(result[i].args.eth,'ether')) + " POA thanks to their " + result[i].args.acorns + " Acorns.";
+			
+							} else if(result[i].event == "WithdrewBalance"){
+								eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.player) + " withdrew " + formatEthValue2(web3.fromWei(result[i].args.eth,'ether')) + " POA from their balance.";
 
-					} else if(result[i].event == "SoldEgg"){
-						eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.player) + " sold " + result[i].args.eggs + " Eggs for " + formatEthValue2(web3.fromWei(result[i].args.eth,'ether')) + " POA.";
+							} else if(result[i].event == "SoldEgg"){
+								eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.player) + " sold " + result[i].args.eggs + " Eggs for " + formatEthValue2(web3.fromWei(result[i].args.eth,'ether')) + " POA.";
 
-					} else if(result[i].event == "BoughtEgg"){
-						eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.player) + " bought " + result[i].args.eggs + " Eggs for " + formatEthValue2(web3.fromWei(result[i].args.eth,'ether')) + " POA.";
+							} else if(result[i].event == "BoughtEgg"){
+								eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.player) + " bought " + result[i].args.eggs + " Eggs for " + formatEthValue2(web3.fromWei(result[i].args.eth,'ether')) + " POA.";
 
-					} else if(result[i].event == "StartedSnailing"){
-						eventlogdoc.innerHTML += "<br>[~" + datetext + "] Welcome to our newest SnailFarmer, " + formatEthAdr(result[i].args.player) + "!";
+							} else if(result[i].event == "StartedSnailing"){
+								eventlogdoc.innerHTML += "<br>[~" + datetext + "] Welcome to our newest SnailFarmer, " + formatEthAdr(result[i].args.player) + "!";
 
-					} else if(result[i].event == "BecameQueen"){
-						eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.player) + " becomes the SpiderQueen!";
-							
-					} else if(result[i].event == "BecameDuke"){
-						eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.player) + " becomes the SquirrelDuke!";
-							
-					} else if(result[i].event == "BecamePrince"){
-						eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.player) + " becomes the TadpolePrince!";
-							
-					} else if(result[i].event == "WonRound"){
-						eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.roundwinner) + " WINS ROUND " + result[i].args.round + " AND EARNS " + formatEthValue2(web3.fromWei(result[i].args.eth,'ether')) + " POA!";
-							
-					} else if(result[i].event == "BeganRound"){
-						eventlogdoc.innerHTML += "<br>[~" + datetext + "] Round " + result[i].args.round + " has started!";
-							
-					} else if(result[i].event == "JoinedRound"){
-						eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.player) + " joins the fray, with " + result[i].args.playerreds + " Red Eggs.";
-							
-					} else if(result[i].event == "GrabbedHarvest"){
-						eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.player) + " grabbed the Red Harvest by spending " + formatEthValue2(web3.fromWei(result[i].args.eth,'ether')) + " POA.";
-							
-					} else if(result[i].event == "FoundSlug"){
-						eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.player) + " sacrifices a colossal " + result[i].args.snails + " Snails and finds the Slug.";
-							
-					} else if(result[i].event == "FoundLettuce"){
-						eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.player) + " spent " + result[i].args.lettucereq + " Red Eggs to find a Lettuce.";
-							
-					} else if(result[i].event == "FoundCarrot"){
-						eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.player) + " found a Carrot for " + formatEthValue2(web3.fromWei(result[i].args.eth,'ether')) + " POA.";
-							
-					} else if(result[i].event == "BoostedPot"){
-						eventlogdoc.innerHTML += "<br>[" + datetext + "] " + formatEthAdr(result[i].args.player) + " makes a generous " + formatEthValue2(web3.fromWei(result[i].args.eth,'ether')) + " POA donation to the SnailPot. Can't wait for next round!";
-	
-					}
-					logboxscroll.scrollTop = logboxscroll.scrollHeight;
+							} else if(result[i].event == "BecameQueen"){
+								eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.player) + " becomes the SpiderQueen!";
+									
+							} else if(result[i].event == "BecameDuke"){
+								eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.player) + " becomes the SquirrelDuke!";
+									
+							} else if(result[i].event == "BecamePrince"){
+								eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.player) + " becomes the TadpolePrince!";
+									
+							} else if(result[i].event == "WonRound"){
+								eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.roundwinner) + " WINS ROUND " + result[i].args.round + " AND EARNS " + formatEthValue2(web3.fromWei(result[i].args.eth,'ether')) + " POA!";
+									
+							} else if(result[i].event == "BeganRound"){
+								eventlogdoc.innerHTML += "<br>[~" + datetext + "] Round " + result[i].args.round + " has started!";
+									
+							} else if(result[i].event == "JoinedRound"){
+								eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.player) + " joins the fray, with " + result[i].args.playerreds + " Red Eggs.";
+									
+							} else if(result[i].event == "GrabbedHarvest"){
+								eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.player) + " grabbed the Red Harvest by spending " + formatEthValue2(web3.fromWei(result[i].args.eth,'ether')) + " POA.";
+									
+							} else if(result[i].event == "FoundSlug"){
+								eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.player) + " sacrifices a colossal " + result[i].args.snails + " Snails and finds the Slug.";
+									
+							} else if(result[i].event == "FoundLettuce"){
+								eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.player) + " spent " + result[i].args.lettucereq + " Red Eggs to find a Lettuce.";
+									
+							} else if(result[i].event == "FoundCarrot"){
+								eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.player) + " found a Carrot for " + formatEthValue2(web3.fromWei(result[i].args.eth,'ether')) + " POA.";
+									
+							} else if(result[i].event == "BoostedPot"){
+								eventlogdoc.innerHTML += "<br>[" + datetext + "] " + formatEthAdr(result[i].args.player) + " makes a generous " + formatEthValue2(web3.fromWei(result[i].args.eth,'ether')) + " POA donation to the SnailPot. Can't wait for next round!";
+			
+							}
+							logboxscroll.scrollTop = logboxscroll.scrollHeight;
+						}
+					}	
 				}
+				slowupdateLeaderboard();
+			} else {
+				p_keepUpdating = false;
 			}
-			slowupdateLeaderboard();
 		}
 		else{
 			////console.log("problem!");
